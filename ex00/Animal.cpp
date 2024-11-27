@@ -6,7 +6,7 @@
 /*   By: adbouras <adbouras@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 18:32:32 by adbouras          #+#    #+#             */
-/*   Updated: 2024/11/25 19:25:34 by adbouras         ###   ########.fr       */
+/*   Updated: 2024/11/27 21:01:19 by adbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,5 @@ str		Animal::getType( void ) const {
 }
 
 void	Animal::makeSound( void ) const {
-	std::cout << "🫧 🫧 🫧 🫧 🫧 🫧 🫧" << std::endl;
+	std::cout << "🗿 🗿 🗿 🗿 🗿 🗿 🗿" << std::endl;
 }

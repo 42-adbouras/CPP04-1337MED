@@ -6,7 +6,7 @@
 /*   By: adbouras <adbouras@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 17:47:04 by adbouras          #+#    #+#             */
-/*   Updated: 2024/11/25 21:04:53 by adbouras         ###   ########.fr       */
+/*   Updated: 2024/11/27 20:24:55 by adbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 #include "Animal.hpp"
 
-class Cat : public Animal {
+class Cat : public Animal
+{
 public:
 	Cat		( void );
 	Cat		( const Cat& right );
