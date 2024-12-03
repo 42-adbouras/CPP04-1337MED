@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: adbouras <adbouras@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/03 21:18:33 by adbouras          #+#    #+#             */
-/*   Updated: 2024/12/03 21:57:36 by adbouras         ###   ########.fr       */
+/*   Created: 2024/11/30 18:18:29 by adbouras          #+#    #+#             */
+/*   Updated: 2024/12/01 11:24:28 by adbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,33 @@
 
 Brain::Brain( void ) {
 	std::cout << "[Brain Default Constructor Called]" << std::endl;
+	this->ideas = new str[100];
+	for (int i = 0; i < 100; i++)
+		this->ideas[i] = "brainIdeas";
 }
 
 Brain::Brain( const Brain& right ) {
-	std::cout << "[Brain Copy Constuctor Called]" << std::endl;
-	if (this != &right)
-		*this = right;
+	str*	temp = right.getBrain();
+
+	std::cout << "[Brain Copy Constructor Called]" << std::endl;
+	
+	this->ideas = new str[100];
+	for (int i = 0; i < 100; i++)
+		this->ideas[i] = temp[i];
 }
 
 Brain::~Brain( void ) {
 	std::cout << "[Brain Default Destructor Called]" << std::endl;
+	delete []this->ideas;
 }
 
 Brain&	Brain::operator=( const Brain& right ) {
-	std::cout << "[Brain Copy Assignment Called]" << std::endl;
-	if (this != &right)
-		*this->ideas = *right.ideas;
-	return (*this);
-}
-
-str*	Brain::getIdeas( void ) {
-	return (this->ideas);
-}
-
-void	Brain::setIdeas( str* idea ) {
-	for (int i = 0; i > 100; i++) {
-		this->ideas[i] = idea[i];
+	if (this != &right) {
+		for (int i = 0; i < 100; i++)
+			this->ideas[i] = right.ideas[i];
 	}
+}
+
+str*	Brain::getBrain( void ) const {
+	return (this->ideas);
 }

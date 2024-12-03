@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adbouras <adbouras@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/27 20:23:17 by adbouras          #+#    #+#             */
-/*   Updated: 2024/12/03 14:13:40 by adbouras         ###   ########.fr       */
+/*   Created: 2024/11/30 18:07:34 by adbouras          #+#    #+#             */
+/*   Updated: 2024/12/03 14:06:53 by adbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "Animal.hpp"
+typedef	std::string	str;
 
-class Dog : public Animal
+class Brain
 {
+private:
+	str*	ideas;
 public:
-	Dog		( void );
-	Dog		( const Dog& right );
-	~Dog	( void );
+	Brain 	( void );
+	Brain 	( const Brain& right );
+	~Brain 	( void );
 
-	Dog&	operator=( const Dog& right );
+	Brain&	operator=( const Brain& right );
 
-	void	makeSound( void ) const;
+	str*	getBrain( void ) const;
 };

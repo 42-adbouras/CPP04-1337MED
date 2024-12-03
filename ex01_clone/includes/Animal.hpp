@@ -6,7 +6,7 @@
 /*   By: adbouras <adbouras@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 17:45:55 by adbouras          #+#    #+#             */
-/*   Updated: 2024/12/03 21:37:32 by adbouras         ###   ########.fr       */
+/*   Updated: 2024/12/03 14:00:29 by adbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ typedef	std::string	str;
 class Animal
 {
 protected:
-	str				type;
+	str		type;
 public:
 	Animal			( void );
 	Animal			( const Animal& right );
@@ -42,5 +42,5 @@ public:
 	Animal&			operator=( const Animal& right );
 
 	str				getType( void ) const;
-	virtual void	makeSound( void ) const;
+	virtual	void	makeSound( void ) const;
 };

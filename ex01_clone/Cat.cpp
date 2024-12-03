@@ -6,7 +6,7 @@
 /*   By: adbouras <adbouras@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 20:16:03 by adbouras          #+#    #+#             */
-/*   Updated: 2024/12/03 21:03:05 by adbouras         ###   ########.fr       */
+/*   Updated: 2024/12/03 14:12:46 by adbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,15 @@
 Cat::Cat( void ) : Animal() {
 	std::cout << "[Cat Default Constructor Called]" << std::endl;
 	this->type = "Cat";
+	this->catBrain = new Brain;
 }
 
 Cat::Cat( const Cat& right ) : Animal() {
 	std::cout << "[Cat Copy Constructor Called]" << std::endl;
-	if (this != &right)
-		*this = right;
+	if (this != &right) {
+		this->type = right.getType();
+		// this->catBrain	= Brain(right.catBrain);
+	}
 }
 
 Cat::~Cat( void ) {
@@ -28,8 +31,9 @@ Cat::~Cat( void ) {
 }
 
 Cat&	Cat::operator=( const Cat& right ) {
-	if (this != &right)
+	if (this != &right) {
 		this->type = right.type;
+	}
 	return (*this);
 }
 

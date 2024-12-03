@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adbouras <adbouras@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/27 20:23:17 by adbouras          #+#    #+#             */
-/*   Updated: 2024/12/03 14:13:40 by adbouras         ###   ########.fr       */
+/*   Created: 2024/11/25 18:00:30 by adbouras          #+#    #+#             */
+/*   Updated: 2024/12/03 13:57:50 by adbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include <iostream>
+#include "includes/Animal.hpp"
+// #include "includes/Cat.hpp"
+// #include "includes/Dog.hpp"
 
-#include "Animal.hpp"
+int	main( void ) {
 
-class Dog : public Animal
-{
-public:
-	Dog		( void );
-	Dog		( const Dog& right );
-	~Dog	( void );
-
-	Dog&	operator=( const Dog& right );
-
-	void	makeSound( void ) const;
-};
+	Animal	*a = new Animal;
+	std::cout << a->getType() << ": ";
+	a->makeSound();
+	delete a;
+}

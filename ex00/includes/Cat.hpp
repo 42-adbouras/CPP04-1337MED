@@ -6,7 +6,7 @@
 /*   By: adbouras <adbouras@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 17:47:04 by adbouras          #+#    #+#             */
-/*   Updated: 2024/11/27 20:24:55 by adbouras         ###   ########.fr       */
+/*   Updated: 2024/12/03 14:13:46 by adbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class Cat : public Animal
 public:
 	Cat		( void );
 	Cat		( const Cat& right );
-	~Cat		( void );
+	~Cat	( void );
 
 	Cat&	operator=( const Cat& right );
 

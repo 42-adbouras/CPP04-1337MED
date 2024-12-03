@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adbouras <adbouras@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/27 20:23:17 by adbouras          #+#    #+#             */
-/*   Updated: 2024/12/03 14:13:40 by adbouras         ###   ########.fr       */
+/*   Created: 2024/11/25 17:47:04 by adbouras          #+#    #+#             */
+/*   Updated: 2024/12/03 14:00:07 by adbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,17 @@
 
 #include "Animal.hpp"
 
-class Dog : public Animal
+class Cat : public Animal
 {
+private:
+	Brain*	catBrain;
 public:
-	Dog		( void );
-	Dog		( const Dog& right );
-	~Dog	( void );
+	Cat		( void );
+	Cat		( const Cat& right );
+	~Cat	( void );
 
-	Dog&	operator=( const Dog& right );
+	Cat&	operator=( const Cat& right );
 
 	void	makeSound( void ) const;
+	Brain*	getBrain( void ) const;
 };

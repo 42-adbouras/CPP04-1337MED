@@ -6,7 +6,7 @@
 /*   By: adbouras <adbouras@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 20:48:09 by adbouras          #+#    #+#             */
-/*   Updated: 2024/12/01 11:22:12 by adbouras         ###   ########.fr       */
+/*   Updated: 2024/12/03 21:03:30 by adbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,8 @@ Dog::Dog( void ) : Animal() {
 
 Dog::Dog( const Dog& right ) : Animal() {
 	std::cout << "[Dog Copy Constructor Called]" << std::endl;
-	if (this != &right) {
+	if (this != &right)
 		*this = right;
-	}
 }
 
 Dog::~Dog( void ) {
@@ -29,9 +28,8 @@ Dog::~Dog( void ) {
 }
 
 Dog&	Dog::operator=( const Dog& right ) {
-	if (this != &right) {
+	if (this != &right)
 		this->type = right.type;
-	}
 	return (*this);
 }
 

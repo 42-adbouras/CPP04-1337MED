@@ -5,23 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: adbouras <adbouras@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/30 18:07:34 by adbouras          #+#    #+#             */
-/*   Updated: 2024/12/01 10:53:25 by adbouras         ###   ########.fr       */
+/*   Created: 2024/12/03 21:11:12 by adbouras          #+#    #+#             */
+/*   Updated: 2024/12/03 21:56:42 by adbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#pragma once
+
+#include <iostream>
+#include <string>
+
+typedef std::string	str;
 
 class Brain
 {
 private:
-	str*	ideas;
+	str		ideas[100];
 public:
-	Brain 	( void );
-	Brain 	( const Brain& right );
-	~Brain 	( void );
+	Brain	( void );
+	Brain	( const Brain& right );
+	~Brain	( void );
 
 	Brain&	operator=( const Brain& right );
 
-	str*	getBrain( void ) const;
+	str*	getIdeas( void );
+	void	setIdeas( str* idea );
 };
