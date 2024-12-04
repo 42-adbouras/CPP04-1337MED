@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adbouras <adbouras@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/25 18:00:30 by adbouras          #+#    #+#             */
-/*   Updated: 2024/12/04 12:08:18 by adbouras         ###   ########.fr       */
+/*   Created: 2024/11/27 20:23:17 by adbouras          #+#    #+#             */
+/*   Updated: 2024/12/04 11:21:35 by adbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/Animal.hpp"
-#include "includes/Cat.hpp"
-#include "includes/Dog.hpp"
+#pragma once
 
-int	main( void ) {
+#include "Animal.hpp"
 
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	delete j;//should not create a leak
-	delete i;
-	system("leaks -q exe");
-}
+class Dog : public Animal
+{
+private:
+	Brain*	dogBrain;
+public:
+	Dog		( void );
+	Dog		( const Dog& right );
+	~Dog	( void );
+
+	Dog&	operator=( const Dog& right );
+
+	void	makeSound( void )	const;
+	Brain*	getBrain( void )	const;
+};

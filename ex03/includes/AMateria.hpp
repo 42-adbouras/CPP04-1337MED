@@ -1,24 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adbouras <adbouras@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/25 18:00:30 by adbouras          #+#    #+#             */
-/*   Updated: 2024/12/04 12:08:18 by adbouras         ###   ########.fr       */
+/*   Created: 2024/12/04 17:56:28 by adbouras          #+#    #+#             */
+/*   Updated: 2024/12/04 18:25:23 by adbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/Animal.hpp"
-#include "includes/Cat.hpp"
-#include "includes/Dog.hpp"
+#pragma once
 
-int	main( void ) {
+#include <iostream>
+#include <string>
 
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	delete j;//should not create a leak
-	delete i;
-	system("leaks -q exe");
-}
+class ICharacter;
+
+class AMateria
+{
+protected:
+	
+public:
+	AMateria	( void );
+	AMateria	( std::string const & type );
+	AMateria	( const AMateria& right );
+	~AMateria	( void );
+
+	std::string const&	getType	( void ) const; //Returns the materia type
+	virtual AMateria*	clone	( void ) const = 0;
+	virtual void		use		( ICharacter& target );
+};

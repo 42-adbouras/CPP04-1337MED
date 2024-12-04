@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ICharacter.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adbouras <adbouras@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/25 18:00:30 by adbouras          #+#    #+#             */
-/*   Updated: 2024/12/04 12:08:18 by adbouras         ###   ########.fr       */
+/*   Created: 2024/12/04 18:05:15 by adbouras          #+#    #+#             */
+/*   Updated: 2024/12/04 18:25:39 by adbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/Animal.hpp"
-#include "includes/Cat.hpp"
-#include "includes/Dog.hpp"
+#pragma once
 
-int	main( void ) {
+#include "AMateria.hpp"
 
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	delete j;//should not create a leak
-	delete i;
-	system("leaks -q exe");
-}
+class ICharacter
+{
+public:
+	virtual ~ICharacter() {}
+	virtual std::string const& getName() const		= 0;
+	virtual void equipe( AMateria* m )				= 0;
+	virtual void unequip( int idx ) 				= 0;
+	virtual void use( int idx, ICharacter& target )	= 0;
+};

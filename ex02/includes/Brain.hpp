@@ -1,24 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adbouras <adbouras@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/25 18:00:30 by adbouras          #+#    #+#             */
-/*   Updated: 2024/12/04 12:08:18 by adbouras         ###   ########.fr       */
+/*   Created: 2024/12/03 21:11:12 by adbouras          #+#    #+#             */
+/*   Updated: 2024/12/04 11:28:07 by adbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/Animal.hpp"
-#include "includes/Cat.hpp"
-#include "includes/Dog.hpp"
+#pragma once
 
-int	main( void ) {
+#include <iostream>
+#include <string>
 
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	delete j;//should not create a leak
-	delete i;
-	system("leaks -q exe");
-}
+typedef std::string	str;
+
+class Brain
+{
+private:
+	std::string		ideas[100];
+public:
+	Brain	( void );
+	Brain	( const Brain& right );
+	~Brain	( void );
+
+	Brain&	operator=( const Brain& right );
+
+	str		getIdea( int i ) const;
+	void	setIdea( str idea, int i );
+	void	setIdeas( str idea );
+};
