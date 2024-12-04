@@ -6,7 +6,7 @@
 /*   By: adbouras <adbouras@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 20:16:03 by adbouras          #+#    #+#             */
-/*   Updated: 2024/12/03 22:01:14 by adbouras         ###   ########.fr       */
+/*   Updated: 2024/12/04 11:18:14 by adbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,21 +20,22 @@ Cat::Cat( void ) : Animal() {
 
 Cat::Cat( const Cat& right ) : Animal() {
 	std::cout << "[Cat Copy Constructor Called]" << std::endl;
-	if (this != &right) {
-		this->catBrain	= new Brain;
-		*this			= right;
-	}
+	if (this != &right)
+		*this = right;
 }
 
 Cat::~Cat( void ) {
 	std::cout << "[Cat Default Destructor Called]" << std::endl;
-	delete []this->catBrain;
+	delete this->catBrain;
 }
 
 Cat&	Cat::operator=( const Cat& right ) {
+	std::cout << "[Cat Copy Assignment Called]" << std::endl;
 	if (this != &right) {
-		this->type = right.type;
-		this->catBrain->setIdeas(right.catBrain->getIdeas());
+		delete this->catBrain;
+		this->type		= right.type;
+		this->catBrain	= new Brain;
+		*this->catBrain	= *right.catBrain;
 	}
 	return (*this);
 }

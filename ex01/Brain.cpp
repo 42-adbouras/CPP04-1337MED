@@ -6,7 +6,7 @@
 /*   By: adbouras <adbouras@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 21:18:33 by adbouras          #+#    #+#             */
-/*   Updated: 2024/12/03 21:57:36 by adbouras         ###   ########.fr       */
+/*   Updated: 2024/12/04 11:29:53 by adbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,15 @@ Brain&	Brain::operator=( const Brain& right ) {
 	return (*this);
 }
 
-str*	Brain::getIdeas( void ) {
-	return (this->ideas);
+str		Brain::getIdea( int i ) const {
+	return (this->ideas[i]);
 }
 
-void	Brain::setIdeas( str* idea ) {
-	for (int i = 0; i > 100; i++) {
-		this->ideas[i] = idea[i];
-	}
+void	Brain::setIdea( str idea, int i ) {
+		this->ideas[i] = idea;
+}
+
+void	Brain::setIdeas( str idea ) {
+	for (int i = 0; i < 100; i++)
+		this->ideas[i] = idea;
 }

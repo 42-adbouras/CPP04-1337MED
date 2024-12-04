@@ -6,7 +6,7 @@
 /*   By: adbouras <adbouras@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 20:23:17 by adbouras          #+#    #+#             */
-/*   Updated: 2024/12/03 22:02:13 by adbouras         ###   ########.fr       */
+/*   Updated: 2024/12/04 11:21:35 by adbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 class Dog : public Animal
 {
 private:
-	// Brain*	dogBrain;
+	Brain*	dogBrain;
 public:
 	Dog		( void );
 	Dog		( const Dog& right );
@@ -25,5 +25,6 @@ public:
 
 	Dog&	operator=( const Dog& right );
 
-	void	makeSound( void ) const;
+	void	makeSound( void )	const;
+	Brain*	getBrain( void )	const;
 };

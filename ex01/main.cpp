@@ -6,7 +6,7 @@
 /*   By: adbouras <adbouras@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 18:00:30 by adbouras          #+#    #+#             */
-/*   Updated: 2024/12/03 14:15:31 by adbouras         ###   ########.fr       */
+/*   Updated: 2024/12/04 11:49:20 by adbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,9 @@
 
 int	main( void ) {
 
-	Animal	*a = new Cat;
-	std::cout << a->getType() << ": ";
-	a->makeSound();
-	delete a;
+	const Animal* j = new Dog();
+	const Animal* i = new Cat();
+	delete j;//should not create a leak
+	delete i;
+	system("leaks -q exe");
 }

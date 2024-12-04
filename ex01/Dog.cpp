@@ -6,7 +6,7 @@
 /*   By: adbouras <adbouras@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 20:48:09 by adbouras          #+#    #+#             */
-/*   Updated: 2024/12/03 21:03:30 by adbouras         ###   ########.fr       */
+/*   Updated: 2024/12/04 11:50:40 by adbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 Dog::Dog( void ) : Animal() {
 	std::cout << "[Dog Default Constructor Called]" << std::endl;
-	this->type = "Dog";
+	this->type		= "Dog";
+	this->dogBrain	= new Brain;
 }
 
 Dog::Dog( const Dog& right ) : Animal() {
@@ -24,15 +25,25 @@ Dog::Dog( const Dog& right ) : Animal() {
 }
 
 Dog::~Dog( void ) {
-	std::cout << "[Dog Desstructor Called]" << std::endl;
+	std::cout << "[Dog Default Destructor Called]" << std::endl;
+	delete this->dogBrain;
 }
 
 Dog&	Dog::operator=( const Dog& right ) {
-	if (this != &right)
-		this->type = right.type;
+	std::cout << "[Dog Copy Assignment Called]" << std::endl;
+	if (this != &right) {
+		delete this->dogBrain;
+		this->type		= right.type;
+		this->dogBrain	= new Brain;
+		*this->dogBrain	= *right.dogBrain;
+	}
 	return (*this);
 }
 
 void	Dog::makeSound( void ) const {
 	std::cout << "Im a DOWG.." << std::endl;
+}
+
+Brain*	Dog::getBrain( void ) const {
+	return (this->dogBrain);
 }
