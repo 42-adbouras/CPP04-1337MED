@@ -6,7 +6,7 @@
 #    By: adbouras <adbouras@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/25 17:47:17 by adbouras          #+#    #+#              #
-#    Updated: 2024/11/25 18:23:05 by adbouras         ###   ########.fr        #
+#    Updated: 2024/12/05 12:42:46 by adbouras         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,11 +21,11 @@ CC		= c++
 
 CFLAGS	= -Wall -Wextra -Werror -Wshadow -std=c++98
 
-NAME	= exe
+NAME	= animals.exe
 
-SRC		= main.cpp Animal.cpp Cat.cpp Dog.cpp
+SRC		= main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp
 
-NCLD	= includes/Animal.hpp includes/Cat.hpp includes/Dog.hpp
+NCLD	= includes/Animal.hpp includes/Cat.hpp includes/Dog.hpp includes/WrongAnimal.hpp includes/WrongCat.hpp
 
 OBJ_DIR = objects/
 

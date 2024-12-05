@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adbouras <adbouras@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/25 17:47:04 by adbouras          #+#    #+#             */
-/*   Updated: 2024/12/05 12:21:41 by adbouras         ###   ########.fr       */
+/*   Created: 2024/12/05 12:20:09 by adbouras          #+#    #+#             */
+/*   Updated: 2024/12/05 12:22:50 by adbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "Animal.hpp"
+#include "WrongAnimal.hpp"
 
-class Cat : public Animal
+class WrongCat : public WrongAnimal
 {
 public:
-	Cat		( void );
-	Cat		( const Cat& right );
-	~Cat	( void );
+	WrongCat		( void );
+	WrongCat		( const WrongCat& right );
+	~WrongCat		( void );
 
-	Cat&	operator=( const Cat& right );
+	WrongCat&		operator=( const WrongCat& right );
 
-	void	makeSound( void ) const;
+	void			makeSound( void ) const;
 };

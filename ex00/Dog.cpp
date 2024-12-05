@@ -6,7 +6,7 @@
 /*   By: adbouras <adbouras@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 20:48:09 by adbouras          #+#    #+#             */
-/*   Updated: 2024/12/03 21:03:30 by adbouras         ###   ########.fr       */
+/*   Updated: 2024/12/05 12:37:34 by adbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,11 @@ Dog::Dog( const Dog& right ) : Animal() {
 }
 
 Dog::~Dog( void ) {
-	std::cout << "[Dog Desstructor Called]" << std::endl;
+	std::cout << "[Dog Default Destructor Called]" << std::endl;
 }
 
 Dog&	Dog::operator=( const Dog& right ) {
+	std::cout << "[Dog Copy Assignment Called]" << std::endl;
 	if (this != &right)
 		this->type = right.type;
 	return (*this);

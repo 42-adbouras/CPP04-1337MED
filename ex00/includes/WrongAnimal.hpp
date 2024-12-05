@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adbouras <adbouras@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/25 17:47:04 by adbouras          #+#    #+#             */
-/*   Updated: 2024/12/05 12:21:41 by adbouras         ###   ########.fr       */
+/*   Created: 2024/12/05 12:20:32 by adbouras          #+#    #+#             */
+/*   Updated: 2024/12/05 12:23:49 by adbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "Animal.hpp"
+#include <iostream>
+#include <string>
 
-class Cat : public Animal
+typedef	std::string	str;
+
+class WrongAnimal
 {
+protected:
+	str				type;
 public:
-	Cat		( void );
-	Cat		( const Cat& right );
-	~Cat	( void );
+	WrongAnimal		( void );
+	WrongAnimal		( const WrongAnimal& right );
+	~WrongAnimal	( void );
 
-	Cat&	operator=( const Cat& right );
+	WrongAnimal&	operator=( const WrongAnimal& right );
 
-	void	makeSound( void ) const;
+	str				getType( void ) const;
+	void			makeSound( void ) const;
 };

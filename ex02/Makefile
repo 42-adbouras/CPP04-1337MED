@@ -6,7 +6,7 @@
 #    By: adbouras <adbouras@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/25 17:47:17 by adbouras          #+#    #+#              #
-#    Updated: 2024/12/03 22:02:49 by adbouras         ###   ########.fr        #
+#    Updated: 2024/12/05 12:43:03 by adbouras         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ CC		= c++
 
 CFLAGS	= -Wall -Wextra -Werror -Wshadow -std=c++98
 
-NAME	= exe
+NAME	= animals.exe
 
 SRC		= main.cpp Animal.cpp Cat.cpp Dog.cpp Brain.cpp
 
