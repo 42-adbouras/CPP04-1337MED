@@ -6,7 +6,7 @@
 /*   By: adbouras <adbouras@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 16:24:07 by adbouras          #+#    #+#             */
-/*   Updated: 2024/12/06 16:43:15 by adbouras         ###   ########.fr       */
+/*   Updated: 2024/12/07 15:08:09 by adbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,18 @@
 
 #include "ICharacter.hpp"
 
+typedef std::string str;
 class AMateria;
 
 class Character : public ICharacter
 {
 private:
 	AMateria	*inventory[4];
+	int			inventorySize;
+	str			name;
 public:
 	Character	( void );
+	Character	( str _name );
 	Character	( const Character& right );
 	~Character	( void );
 
