@@ -12,12 +12,12 @@
 
 #include "includes/Ice.hpp"
 
-Ice::Ice( void ) {
+Ice::Ice( void ) : AMateria() {
 	std::cout << "[Ice Default Constructor Called]" << std::endl;
 	this->_type = "ice";
 }
 
-Ice::Ice( const Ice& right ) {
+Ice::Ice( const Ice& right ) : AMateria() {
 	std::cout << "[Ice Copy Constructor Called]" << std::endl;
 	this->_type = right.getType();
 }

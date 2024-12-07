@@ -12,7 +12,9 @@
 
 #include "includes/Character.hpp"
 
-Character::Character( void ) : ICharacter(), name("unnamedCharacter"), inventorySize(0) {
+Character::Character( void ) : ICharacter() {
+	name			= "unnamedCharacter";
+	inventorySize	= 0;
 	for (int i = 0; i < 4; i++)
 		this->inventory[i] = NULL;
 }
@@ -41,6 +43,7 @@ Character&	Character::operator=( const Character& right ) {
 				this->inventory[i] = right.inventory[i]->clone();
 		}
 	}
+	return (*this);
 }
 
 std::string const&	Character::getName() const {
@@ -61,6 +64,7 @@ void	Character::equipe( AMateria* m ) {
 
 void	Character::unequip( int idx ) {
 	if (this->inventorySize > 0) {
+		delete this->inventory[idx];
 		this->inventorySize--;
 	} else {
 		std::cout << this->getName() << ": Inventory is empty!" << std::endl;
@@ -68,5 +72,6 @@ void	Character::unequip( int idx ) {
 }
 
 void	Character::use( int idx, ICharacter& target ) {
-	
+	(void) target;
+	(void) idx;
 }

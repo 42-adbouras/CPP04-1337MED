@@ -12,12 +12,12 @@
 
 #include "includes/Cure.hpp"
 
-Cure::Cure( void ) {
+Cure::Cure( void ) : AMateria() {
 	std::cout << "[Cure Default Constructor Called]" << std::endl;
 	this->_type = "cure";
 }
 
-Cure::Cure( const Cure& right ) {
+Cure::Cure( const Cure& right ) : AMateria() {
 	std::cout << "[Ice Copy Constructor Called]" << std::endl;
 	this->_type = right.getType();
 }

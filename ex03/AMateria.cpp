@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
-
 #include "includes/AMateria.hpp"
 
 AMateria::AMateria( void ) : _type("undefinedMateria") {
@@ -43,5 +41,6 @@ std::string const&	AMateria::getType	( void ) const {
 }
 
 void	AMateria::use( ICharacter& target ) {
-	std::cout << "IDK how to use " << this->getType() << std::endl;
+	(void) target;
+	// std::cout << target.getName() << ": IDK how to use " << this->getType() << std::endl;
 }

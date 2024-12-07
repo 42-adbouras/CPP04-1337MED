@@ -15,14 +15,15 @@
 #include "ICharacter.hpp"
 
 typedef std::string str;
+
 class AMateria;
 
 class Character : public ICharacter
 {
 private:
+	str			name;
 	AMateria	*inventory[4];
 	int			inventorySize;
-	str			name;
 public:
 	Character	( void );
 	Character	( str _name );

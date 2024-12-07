@@ -25,7 +25,7 @@ public:
 	AMateria	( void );
 	AMateria	( std::string const & type );
 	AMateria	( const AMateria& right );
-	~AMateria	( void );
+	virtual ~AMateria	( void );
 
 	AMateria&	operator=( AMateria& right );
 
