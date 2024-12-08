@@ -6,7 +6,7 @@
 /*   By: adbouras <adbouras@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 18:21:17 by adbouras          #+#    #+#             */
-/*   Updated: 2024/12/04 18:24:54 by adbouras         ###   ########.fr       */
+/*   Updated: 2024/12/08 12:17:24 by adbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 class IMateriaSource
 {
 public:
-	virtual ~IMateriaSource() {}
-	virtual void learnMateria( AMateria* ) = 0;
-	virtual AMateria* createMateria( std::string const & type ) = 0;
+	virtual 			~IMateriaSource	( void ) {}
+	virtual void		learnMateria	( AMateria* )					= 0;
+	virtual AMateria*	createMateria	( std::string const & type )	= 0;
 };

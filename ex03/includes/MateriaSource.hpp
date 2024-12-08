@@ -6,18 +6,25 @@
 /*   By: adbouras <adbouras@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 21:28:44 by adbouras          #+#    #+#             */
-/*   Updated: 2024/12/07 21:30:59 by adbouras         ###   ########.fr       */
+/*   Updated: 2024/12/08 12:29:53 by adbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "AMateria.hpp"
+#include "IMateriaSource.hpp"
 
-class IMateriaSource
+
+class MateriaSource : public IMateriaSource
 {
+private:
+	AMateria		*leared[4];
 public:
-	virtual 			~IMateriaSource() {}
-	virtual void		learnMateria(AMateria*) = 0;
-	virtual AMateria*	createMateria(std::string const & type) = 0;
+	MateriaSource	( void );
+	MateriaSource	( const MateriaSource& right );
+	~MateriaSource	( void );
+
+	MateriaSource&	operator=		( const MateriaSource& right );
+	void			learnMateria	( AMateria* );
+	AMateria*		createMateria	( std::string const & type );
 };
