@@ -6,7 +6,7 @@
 /*   By: adbouras <adbouras@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 21:28:44 by adbouras          #+#    #+#             */
-/*   Updated: 2024/12/08 12:29:53 by adbouras         ###   ########.fr       */
+/*   Updated: 2024/12/08 17:45:02 by adbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,10 @@
 
 #include "IMateriaSource.hpp"
 
-
 class MateriaSource : public IMateriaSource
 {
 private:
-	AMateria		*leared[4];
+	AMateria		*learned[4];
 public:
 	MateriaSource	( void );
 	MateriaSource	( const MateriaSource& right );
