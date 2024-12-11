@@ -13,21 +13,25 @@
 #include "includes/Ice.hpp"
 
 Ice::Ice( void ) : AMateria() {
-	std::cout << "[Ice Default Constructor Called]" << std::endl;
+	if (DEBUG)
+		std::cout << "[Ice Default Constructor Called]" << std::endl;
 	this->_type = "ice";
 }
 
 Ice::Ice( const Ice& right ) : AMateria() {
-	std::cout << "[Ice Copy Constructor Called]" << std::endl;
+	if (DEBUG)
+		std::cout << "[Ice Copy Constructor Called]" << std::endl;
 	this->_type = right.getType();
 }
 
 Ice::~Ice( void ) {
-	std::cout << "[Ice Default Destructor Called]" << std::endl;
+	if (DEBUG)
+		std::cout << "[Ice Default Destructor Called]" << std::endl;
 }
 
 Ice&	Ice::operator=( const Ice& right ) {
-	std::cout << "[Ice Copy Assignment Called]" << std::endl;
+	if (DEBUG)
+		std::cout << "[Ice Copy Assignment Called]" << std::endl;
 	if (this != &right)
 		this->_type = right.getType();
 	return (*this);

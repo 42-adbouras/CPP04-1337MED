@@ -6,14 +6,15 @@
 /*   By: adbouras <adbouras@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 16:43:57 by adbouras          #+#    #+#             */
-/*   Updated: 2024/12/11 17:12:16 by adbouras         ###   ########.fr       */
+/*   Updated: 2024/12/11 19:02:38 by adbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/Character.hpp"
 
 Character::Character( void ) : ICharacter() {
-	std::cout << "[Character Default Constructor Called]" << std::endl;
+	if (DEBUG)
+		std::cout << "[Character Default Constructor Called]" << std::endl;
 	name			= "unnamedCharacter";
 	inventorySize	= 0;
 	for (int i = 0; i < 4; i++)
@@ -21,7 +22,8 @@ Character::Character( void ) : ICharacter() {
 }
 
 Character::Character( str _name ) : ICharacter() {
-	std::cout << "[Character Parameterized Constructor Called]" << std::endl;
+	if (DEBUG)
+		std::cout << "[Character Parameterized Constructor Called]" << std::endl;
 	name			= _name;
 	inventorySize	= 0;
 	for (int i = 0; i < 4; i++)
@@ -29,20 +31,22 @@ Character::Character( str _name ) : ICharacter() {
 }
 
 Character::Character( const Character& right ) : ICharacter() {
-	std::cout << "[Character Copy Constructor Called]" << std::endl;
+	if (DEBUG)
+		std::cout << "[Character Copy Constructor Called]" << std::endl;
 	*this = right;
 }
 
 Character::~Character( void ) {
 	t_matreiaList*	temp;
 
-	std::cout << "[Character Default Destructor Called]" << std::endl;
+	if (DEBUG)
+		std::cout << "[Character Default Destructor Called]" << std::endl;
 	while (this->unequipedList) {
-        temp = this->unequipedList;
-        this->unequipedList = this->unequipedList->next;
-        delete temp->node;
-        delete temp;
-    }
+		temp = this->unequipedList;
+		this->unequipedList = this->unequipedList->next;
+		delete temp->node;
+		delete temp;
+	}
 	for (int i = 0; i < 4; i++) {
 		if (this->inventory[i])
 			delete this->inventory[i];
@@ -51,7 +55,8 @@ Character::~Character( void ) {
 }
 
 Character&	Character::operator=( const Character& right ) {
-	std::cout << "[Character Copy Assignment Called]" << std::endl;
+	if (DEBUG)
+		std::cout << "[Character Copy Assignment Called]" << std::endl;
 	if (this != &right) {
 		this->name = right.getName();
 		for (int i = 0; i < 4; i++) {
@@ -76,6 +81,7 @@ void	Character::equip( AMateria* m ) {
 			if (!this->inventory[i]) {
 				this->inventory[i] = m;
 				this->inventorySize++;
+				std::cout << this->getName() << " equiped " << m->getType() << " at slot " << i + 1 << "." << std::endl;
 				return ;
 			}
 		}
@@ -85,11 +91,12 @@ void	Character::equip( AMateria* m ) {
 }
 
 void	Character::unequip( int idx ) {
-	if (this->inventorySize > 0) {
+	if (this->inventorySize > 0 && idx >= 0 && idx < 4) {
 		listAddBack(&(this->unequipedList), newNode(this->inventory[idx]));
+		std::cout << this->getName() << " droped " << this->inventory[idx]->getType() << " from slot " << idx + 1 << "." << std::endl;
 		this->inventory[idx] = NULL;
 		this->inventorySize--;
-	} else {
+	} else if (idx >= 0 && idx < 4) {
 		std::cout << this->getName() << ": Inventory is empty!" << std::endl;
 	}
 }

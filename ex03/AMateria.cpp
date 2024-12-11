@@ -14,24 +14,29 @@
 #include "includes/ICharacter.hpp"
 
 AMateria::AMateria( void ) : _type("undefinedMateria") {
-	std::cout << "[AMateria Default Constructor Called]" << std::endl;
+	if (DEBUG)
+		std::cout << "[AMateria Default Constructor Called]" << std::endl;
 }
 
 AMateria::AMateria( std::string const & type ) : _type(type) {
-	std::cout << "[AMateria Parameterized Constructor Called]" << std::endl;
+	if (DEBUG)
+		std::cout << "[AMateria Parameterized Constructor Called]" << std::endl;
 };
 
 AMateria::AMateria( const AMateria& right ) {
-	std::cout << "[AMateria Copy Constructor Called]" << std::endl;
+	if (DEBUG)
+		std::cout << "[AMateria Copy Constructor Called]" << std::endl;
 	this->_type = right.getType();
 }
 
 AMateria::~AMateria	( void ) {
-	std::cout << "[AMateria Default Destructor Called]" << std::endl;
+	if (DEBUG)
+		std::cout << "[AMateria Default Destructor Called]" << std::endl;
 }
 
 AMateria&	AMateria::operator=( AMateria& right ) {
-	std::cout << "[AMateria Copy Assignment Called]" << std::endl;
+	if (DEBUG)
+		std::cout << "[AMateria Copy Assignment Called]" << std::endl;
 	if (this != &right)
 		this->_type = right.getType();
 	return (*this);

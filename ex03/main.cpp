@@ -6,7 +6,7 @@
 /*   By: adbouras <adbouras@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 21:32:34 by adbouras          #+#    #+#             */
-/*   Updated: 2024/12/11 17:26:07 by adbouras         ###   ########.fr       */
+/*   Updated: 2024/12/11 19:00:34 by adbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #include "includes/Cure.hpp"
 #include "includes/Character.hpp"
 #include "includes/MateriaSource.hpp"
+
+bool    g_debug = 1;
 
 void    _leaks( void ) { system("leaks -q materia"); }
 void    _ft(){
@@ -43,6 +45,9 @@ int main( void ) {
 
         me->use(0, *bob);
         me->use(1, *bob);
+
+        me->unequip(1);
+        me->unequip(0);
 
 		delete ice; delete cure;
         delete bob; delete me; delete src;

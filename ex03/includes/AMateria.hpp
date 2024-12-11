@@ -15,6 +15,8 @@
 #include <iostream>
 #include <string>
 
+#define DEBUG	0
+
 class ICharacter;
 
 class AMateria
