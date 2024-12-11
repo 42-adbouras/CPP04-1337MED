@@ -6,13 +6,14 @@
 /*   By: adbouras <adbouras@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 16:24:07 by adbouras          #+#    #+#             */
-/*   Updated: 2024/12/09 12:03:23 by adbouras         ###   ########.fr       */
+/*   Updated: 2024/12/11 16:49:32 by adbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include "ICharacter.hpp"
+#include "utils.hpp"
 
 typedef std::string str;
 
@@ -21,9 +22,10 @@ class AMateria;
 class Character : public ICharacter
 {
 private:
-	str			name;
-	AMateria	*inventory[4];
-	int			inventorySize;
+	str				name;
+	AMateria*		inventory[4];
+	int				inventorySize;
+	t_matreiaList*	unequipedList;
 public:
 	Character	( void );
 	Character	( str _name );

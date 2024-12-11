@@ -6,7 +6,7 @@
 /*   By: adbouras <adbouras@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 21:32:34 by adbouras          #+#    #+#             */
-/*   Updated: 2024/12/09 15:18:30 by adbouras         ###   ########.fr       */
+/*   Updated: 2024/12/11 17:26:07 by adbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,36 @@
 #include "includes/Character.hpp"
 #include "includes/MateriaSource.hpp"
 
+void    _leaks( void ) { system("leaks -q materia"); }
+void    _ft(){
+    
+}
 int main( void ) {
 
-    IMateriaSource* src = new MateriaSource();
+    atexit(_leaks);
+    {
+        IMateriaSource*	src	 = new MateriaSource();
 
-    src->learnMateria(new Ice());
-    src->learnMateria(new Cure());
-    
-    ICharacter* me = new Character("me");
-    ICharacter* bob = new Character("bob");
+        AMateria*		ice  = new Ice();
+        AMateria*		cure = new Cure();
 
-    AMateria* ice = src->createMateria("cure");
-    AMateria* cure = src->createMateria("cure");
+        src->learnMateria(ice);
+        src->learnMateria(cure);
 
-    (void) cure;
-    me->equip(ice);
-    me->use(0, *bob);
-    me->unequip(0);
-    me->equip(cure);
-    me->use(0, *me);
+        ICharacter* me = new Character("me");
+        AMateria* tmp;
 
-    while (1)
-    ;
-    return 0;
+        tmp = src->createMateria("ice");
+        me->equip(tmp);
+        tmp = src->createMateria("cure");
+        me->equip(tmp);
+
+        ICharacter* bob = new Character("bob");
+
+        me->use(0, *bob);
+        me->use(1, *bob);
+
+		delete ice; delete cure;
+        delete bob; delete me; delete src;
+    }
 }

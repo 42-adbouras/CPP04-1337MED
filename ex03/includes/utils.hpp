@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ICharacter.hpp                                     :+:      :+:    :+:   */
+/*   utils.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adbouras <adbouras@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/04 18:05:15 by adbouras          #+#    #+#             */
-/*   Updated: 2024/12/11 17:26:47 by adbouras         ###   ########.fr       */
+/*   Created: 2024/12/11 16:12:08 by adbouras          #+#    #+#             */
+/*   Updated: 2024/12/11 16:43:29 by adbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,11 @@
 
 #include "AMateria.hpp"
 
-class ICharacter
+typedef struct	s_materiaList
 {
-public:
-	virtual ~ICharacter() { };
-	virtual std::string const& getName() const		= 0;
-	virtual void equip( AMateria* m )				= 0;
-	virtual void unequip( int idx ) 				= 0;
-	virtual void use( int idx, ICharacter& target )	= 0;
-};
+	AMateria*		node;
+	s_materiaList*	next;
+}				t_matreiaList;
+
+t_matreiaList*	newNode( AMateria* m );
+void			listAddBack( t_matreiaList** list, t_matreiaList* _new );

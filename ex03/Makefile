@@ -6,7 +6,7 @@
 #    By: adbouras <adbouras@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/07 21:32:41 by adbouras          #+#    #+#              #
-#    Updated: 2024/12/09 12:04:24 by adbouras         ###   ########.fr        #
+#    Updated: 2024/12/11 16:57:26 by adbouras         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,9 +23,10 @@ CFLAGS	= -Wall -Wextra -Werror -Wshadow -std=c++98
 
 NAME	= materia
 
-SRC		= AMateria.cpp  Character.cpp  Cure.cpp  Ice.cpp  main.cpp MateriaSource.cpp
+SRC		= AMateria.cpp Character.cpp Cure.cpp Ice.cpp main.cpp MateriaSource.cpp utils.cpp
 
-NCLD	= includes/AMateria.hpp  includes/Character.hpp  includes/Cure.hpp  includes/ICharacter.hpp  includes/IMateriaSource.hpp  includes/Ice.hpp includes/MateriaSource.hpp
+NCLD	= includes/AMateria.hpp includes/Character.hpp includes/Cure.hpp includes/ICharacter.hpp \
+			includes/IMateriaSource.hpp includes/Ice.hpp includes/MateriaSource.hpp  includes/utils.hpp \
 
 OBJ_DIR = objects/
 

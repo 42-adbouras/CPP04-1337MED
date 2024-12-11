@@ -6,7 +6,7 @@
 /*   By: adbouras <adbouras@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 16:43:57 by adbouras          #+#    #+#             */
-/*   Updated: 2024/12/09 13:45:36 by adbouras         ###   ########.fr       */
+/*   Updated: 2024/12/11 17:12:16 by adbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,15 @@ Character::Character( const Character& right ) : ICharacter() {
 }
 
 Character::~Character( void ) {
+	t_matreiaList*	temp;
+
 	std::cout << "[Character Default Destructor Called]" << std::endl;
+	while (this->unequipedList) {
+        temp = this->unequipedList;
+        this->unequipedList = this->unequipedList->next;
+        delete temp->node;
+        delete temp;
+    }
 	for (int i = 0; i < 4; i++) {
 		if (this->inventory[i])
 			delete this->inventory[i];
@@ -78,6 +86,7 @@ void	Character::equip( AMateria* m ) {
 
 void	Character::unequip( int idx ) {
 	if (this->inventorySize > 0) {
+		listAddBack(&(this->unequipedList), newNode(this->inventory[idx]));
 		this->inventory[idx] = NULL;
 		this->inventorySize--;
 	} else {

@@ -6,7 +6,7 @@
 /*   By: adbouras <adbouras@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 12:18:31 by adbouras          #+#    #+#             */
-/*   Updated: 2024/12/09 13:12:27 by adbouras         ###   ########.fr       */
+/*   Updated: 2024/12/11 14:48:12 by adbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ MateriaSource::~MateriaSource( void ) {
 	for (int i = 0; i < 4; i++) {
 		if (this->learned[i]) {
 			delete this->learned[i];
-			this->learned[i] = NULL;	
+			this->learned[i] = NULL;
 		}
 	}
 }
@@ -53,7 +53,7 @@ void	MateriaSource::learnMateria	( AMateria* m ) {
 			return ;
 		}
 	}
-	std::cout << "MateriaSource is full, cannot learn more Materia." << std::endl;
+	std::cout << "* MateriaSource is full! *" << std::endl;
 }
 
 AMateria*	MateriaSource::createMateria( std::string const & type ) {
@@ -61,6 +61,6 @@ AMateria*	MateriaSource::createMateria( std::string const & type ) {
 		if (this->learned[i] && this->learned[i]->getType() == type)
 			return (this->learned[i]->clone());
 	}
-	std::cout << "!Invalid Materia: " << type << "¡" << std::endl;
+	std::cout << "* !Invalid Materia: " << type << "¡ *" << std::endl;
 	return (NULL);
 }
