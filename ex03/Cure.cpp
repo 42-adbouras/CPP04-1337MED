@@ -6,7 +6,7 @@
 /*   By: adbouras <adbouras@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 15:41:54 by adbouras          #+#    #+#             */
-/*   Updated: 2024/12/07 16:11:46 by adbouras         ###   ########.fr       */
+/*   Updated: 2024/12/09 13:30:16 by adbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ Cure::~Cure( void ) {
 }
 
 Cure&	Cure::operator=( const Cure& right ) {
+	std::cout << "[Ice Copy Assignment Called]" << std::endl;
 	if (this != &right)
 		this->_type = right.getType();
 	return (*this);

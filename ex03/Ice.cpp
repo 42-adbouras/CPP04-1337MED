@@ -27,6 +27,7 @@ Ice::~Ice( void ) {
 }
 
 Ice&	Ice::operator=( const Ice& right ) {
+	std::cout << "[Ice Copy Assignment Called]" << std::endl;
 	if (this != &right)
 		this->_type = right.getType();
 	return (*this);

@@ -20,16 +20,16 @@ class ICharacter;
 class AMateria
 {
 protected:
-	std::string	_type;
+	std::string			_type;
 public:
-	AMateria	( void );
-	AMateria	( std::string const & type );
-	AMateria	( const AMateria& right );
+	AMateria			( void );
+	AMateria			( std::string const & type );
+	AMateria			( const AMateria& right );
 	virtual ~AMateria	( void );
 
-	AMateria&	operator=( AMateria& right );
+	AMateria&	operator=		( AMateria& right );
 
-	std::string const&	getType	( void ) const; //Returns the materia type
+	std::string const&	getType	( void ) const;
 	virtual AMateria*	clone	( void ) const = 0;
 	virtual void		use		( ICharacter& target );
 };

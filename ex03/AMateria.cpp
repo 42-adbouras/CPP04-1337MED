@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "includes/AMateria.hpp"
+#include "includes/ICharacter.hpp"
 
 AMateria::AMateria( void ) : _type("undefinedMateria") {
 	std::cout << "[AMateria Default Constructor Called]" << std::endl;
@@ -41,6 +42,5 @@ std::string const&	AMateria::getType	( void ) const {
 }
 
 void	AMateria::use( ICharacter& target ) {
-	(void) target;
-	// std::cout << target.getName() << ": IDK how to use " << this->getType() << std::endl;
+	std::cout << target.getName() << ": IDK how to use " << this->getType() << std::endl;
 }

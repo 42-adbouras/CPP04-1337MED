@@ -6,7 +6,7 @@
 /*   By: adbouras <adbouras@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 16:24:07 by adbouras          #+#    #+#             */
-/*   Updated: 2024/12/07 15:08:09 by adbouras         ###   ########.fr       */
+/*   Updated: 2024/12/09 12:03:23 by adbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ public:
 	Character&	operator=( const Character& right );
 
 	std::string const&	getName() const;
-	void	equipe( AMateria* m );
+	void	equip( AMateria* m );
 	void	unequip( int idx );
 	void	use( int idx, ICharacter& target );
 };
