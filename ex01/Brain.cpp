@@ -6,7 +6,7 @@
 /*   By: adbouras <adbouras@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 21:18:33 by adbouras          #+#    #+#             */
-/*   Updated: 2024/12/04 11:29:53 by adbouras         ###   ########.fr       */
+/*   Updated: 2024/12/14 17:15:02 by adbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,18 @@ Brain::~Brain( void ) {
 
 Brain&	Brain::operator=( const Brain& right ) {
 	std::cout << "[Brain Copy Assignment Called]" << std::endl;
-	if (this != &right)
-		*this->ideas = *right.ideas;
+
+	if (this != &right) {
+		for (int i = 0; i < 100; i++) {
+			this->ideas[i] = right.getIdeas()[i];
+		}
+	}
+		
 	return (*this);
 }
 
-str		Brain::getIdea( int i ) const {
-	return (this->ideas[i]);
+const std::string*	Brain::getIdeas( void ) const {
+	return (this->ideas);
 }
 
 void	Brain::setIdea( str idea, int i ) {

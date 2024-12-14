@@ -6,7 +6,7 @@
 /*   By: adbouras <adbouras@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 16:43:57 by adbouras          #+#    #+#             */
-/*   Updated: 2024/12/11 19:02:38 by adbouras         ###   ########.fr       */
+/*   Updated: 2024/12/14 12:36:46 by adbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ void	Character::unequip( int idx ) {
 		this->inventory[idx] = NULL;
 		this->inventorySize--;
 	} else if (idx >= 0 && idx < 4) {
-		std::cout << this->getName() << ": Inventory is empty!" << std::endl;
+		std::cout << this->getName() << ": Inventory, slot " << idx + 1 << "is empty!" << std::endl;
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: adbouras <adbouras@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 18:00:30 by adbouras          #+#    #+#             */
-/*   Updated: 2024/12/05 13:33:18 by adbouras         ###   ########.fr       */
+/*   Updated: 2024/12/14 15:23:54 by adbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	intra_main( void ) {
 	std::cout << i->getType() << ": "; i->makeSound(); //will output the cat sound!
 	std::cout << j->getType() << ": "; j->makeSound();
 	std::cout << meta->getType() << ": "; meta->makeSound();
+
 	delete meta;
 	delete i;
 	delete j;
@@ -44,6 +45,7 @@ void	print_header( str arg ) {
 	std::cout << arg;
 	std::cout << " ===============\n" << std::endl;
 }
+
 int	main( void ) {
 	print_header("main");
 	intra_main();

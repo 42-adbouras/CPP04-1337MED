@@ -6,7 +6,7 @@
 /*   By: adbouras <adbouras@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 21:11:12 by adbouras          #+#    #+#             */
-/*   Updated: 2024/12/04 11:28:07 by adbouras         ###   ########.fr       */
+/*   Updated: 2024/12/14 17:14:53 by adbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ public:
 
 	Brain&	operator=( const Brain& right );
 
-	str		getIdea( int i ) const;
-	void	setIdea( str idea, int i );
+	const std::string*	getIdeas( void ) const;
 	void	setIdeas( str idea );
+	void	setIdea( str idea, int i );
 };
