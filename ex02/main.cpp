@@ -6,7 +6,7 @@
 /*   By: adbouras <adbouras@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 18:00:30 by adbouras          #+#    #+#             */
-/*   Updated: 2024/12/04 12:55:57 by adbouras         ###   ########.fr       */
+/*   Updated: 2024/12/16 15:31:28 by adbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,68 @@
 #include "includes/Cat.hpp"
 #include "includes/Dog.hpp"
 
-int	main( void ) {
-
-	const Animal* j = new Animal;
+void	intra_main( void ) {
+	const Animal* j = new Dog();
 	const Animal* i = new Cat();
-	j->makeSound();
-	delete j;//should not create a leak
+
+	delete j;
 	delete i;
-	system("leaks -q exe");
+}
+
+void	deep_copy( void ) {
+	Cat 	cat;
+	cat.getBrain()->setIdeas("~Im hungry~");
+	
+	Cat 	catCopy(cat);
+	catCopy.getBrain()->setIdeas("Busy Cleaning..");
+
+	cat.makeSound(); catCopy.makeSound();
+
+	str*	temp		= cat.getBrain()->getIdeas();
+	str*	tempCopy	= catCopy.getBrain()->getIdeas();
+
+	std::cout << "\n\tcat\t|\tcatCopy" << std::endl;
+	std::cout << "________________|_____________________" << std::endl;
+	std::cout << cat.getBrain() << "\t|\t" << catCopy.getBrain() << std::endl;
+	std::cout << "________________|_____________________" << std::endl;
+
+	for (int i = 0; i < 100; i++)
+		std::cout << temp[i] << "\t|\t" << tempCopy[i] << std::endl;
+
+	Dog*	dog = new Dog();
+	dog->getBrain()->setIdeas("Tasty Bone");
+
+	Dog*	dogCopy(dog);
+	dog->getBrain()->setIdeas("Guard mode");
+
+	dog->makeSound(); dogCopy->makeSound();
+	
+	temp		= dog->getBrain()->getIdeas();
+	tempCopy	= dogCopy->getBrain()->getIdeas();
+
+	std::cout << "\n\tdog\t|\tdogCopy" << std::endl;
+	std::cout << "________________|_____________________" << std::endl;
+	std::cout << dog->getBrain() << "\t|\t" << dogCopy->getBrain() << std::endl;
+	std::cout << "________________|_____________________" << std::endl;
+
+	for (int i = 0; i < 100; i++)
+		std::cout << temp[i] << "\t|\t" << tempCopy[i] << std::endl;
+	delete dog;
+}
+
+void	print_header( str arg ) {
+	std::cout << "\n=============== ";
+	std::cout << arg;
+	std::cout << " ===============\n" << std::endl;
+}
+
+
+int main( void )
+{
+	print_header("Intra's main");
+	intra_main();
+	print_header("Deep Copy");
+	deep_copy();
+	print_header("LEAKS");
+	system("leaks -q animals.exe");
 }

@@ -6,7 +6,7 @@
 /*   By: adbouras <adbouras@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 21:11:12 by adbouras          #+#    #+#             */
-/*   Updated: 2024/12/04 11:28:07 by adbouras         ###   ########.fr       */
+/*   Updated: 2024/12/16 15:38:13 by adbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ typedef std::string	str;
 class Brain
 {
 private:
-	std::string		ideas[100];
+	str		*ideas;
 public:
 	Brain	( void );
 	Brain	( const Brain& right );
@@ -28,7 +28,6 @@ public:
 
 	Brain&	operator=( const Brain& right );
 
-	str		getIdea( int i ) const;
-	void	setIdea( str idea, int i );
+	str*	getIdeas( void ) const;
 	void	setIdeas( str idea );
 };
