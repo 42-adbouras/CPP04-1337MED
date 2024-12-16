@@ -6,7 +6,7 @@
 /*   By: adbouras <adbouras@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 21:11:12 by adbouras          #+#    #+#             */
-/*   Updated: 2024/12/16 15:38:13 by adbouras         ###   ########.fr       */
+/*   Updated: 2024/12/16 17:18:32 by adbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 #include <iostream>
 #include <string>
+
+#define DEBUG	1
 
 typedef std::string	str;
 

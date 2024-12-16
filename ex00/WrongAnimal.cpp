@@ -6,28 +6,31 @@
 /*   By: adbouras <adbouras@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 12:24:29 by adbouras          #+#    #+#             */
-/*   Updated: 2024/12/05 12:39:47 by adbouras         ###   ########.fr       */
+/*   Updated: 2024/12/16 17:13:35 by adbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/WrongAnimal.hpp"
 
 WrongAnimal::WrongAnimal( void ) : type("undefinedWrongAnimal") {
-	std::cout << "[WrongAnimal Default Constructor Called]" << std::endl;
+	if (DEBUG)
+		std::cout << "[WrongAnimal Default Constructor Called]" << std::endl;
 }
 
 WrongAnimal::WrongAnimal( const WrongAnimal& right ) {
-	std::cout << "[WrongAnimal Copy Constructor Called]" << std::endl;
-	if (this != &right)
-		*this = right;
+	if (DEBUG)
+		std::cout << "[WrongAnimal Copy Constructor Called]" << std::endl;
+	*this = right;
 }
 
 WrongAnimal::~WrongAnimal( void ) {
-	std::cout << "[WrongAnimal Default Destructor Called]" << std::endl;
+	if (DEBUG)
+		std::cout << "[WrongAnimal Default Destructor Called]" << std::endl;
 }
 
 WrongAnimal&	WrongAnimal::operator=( const WrongAnimal& right ) {
-	std::cout << "[WrongAnimal Copy Assignment Called]" << std::endl;
+	if (DEBUG)
+		std::cout << "[WrongAnimal Copy Assignment Called]" << std::endl;
 	if (this != &right)
 		this->type = right.type;
 	return (*this);
