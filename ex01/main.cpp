@@ -6,7 +6,7 @@
 /*   By: adbouras <adbouras@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 18:00:30 by adbouras          #+#    #+#             */
-/*   Updated: 2024/12/16 16:29:07 by adbouras         ###   ########.fr       */
+/*   Updated: 2024/12/17 10:10:34 by adbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ void	deepShallowCopy( void ) {
 
 	for (int i = 0; i < 100; i++)
 		std::cout << temp[i] << "\t|\t" << tempCopy[i] << std::endl;
+	cat = catCopy;
+	dog = dogCopy;
 	delete dog;
 }
 

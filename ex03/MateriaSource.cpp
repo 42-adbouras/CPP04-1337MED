@@ -6,7 +6,7 @@
 /*   By: adbouras <adbouras@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 12:18:31 by adbouras          #+#    #+#             */
-/*   Updated: 2024/12/11 18:56:19 by adbouras         ###   ########.fr       */
+/*   Updated: 2024/12/17 15:07:48 by adbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ MateriaSource::MateriaSource( void ) : IMateriaSource() {
 MateriaSource::MateriaSource( const MateriaSource& right ) : IMateriaSource() {
 	if (DEBUG)
 		std::cout << "[MateriaSource Copy Constructor Called]" << std::endl;
-	*this = right;
+	for (int i = 0; i < 4; i++) {
+		this->learned[i] = right.learned[i]->clone();
+	}
 }
 
 MateriaSource::~MateriaSource( void ) {
@@ -41,6 +43,10 @@ MateriaSource&	MateriaSource::operator=( const MateriaSource& right ) {
 		std::cout << "[MateriaSource Copy Assignment Called]" << std::endl;
 	if (this != &right) {
 		for (int i = 0; i < 4; i++) {
+			if (this->learned[i]) {
+				delete this->learned[i];
+				this->learned[i] = NULL;
+			}
 			if (right.learned[i])
 				this->learned[i] = right.learned[i]->clone();
 		}
@@ -65,6 +71,6 @@ AMateria*	MateriaSource::createMateria( std::string const & type ) {
 		if (this->learned[i] && this->learned[i]->getType() == type)
 			return (this->learned[i]->clone());
 	}
-	std::cout << "* !Invalid Materia: " << type << "¡ *" << std::endl;
+	std::cout << "* !Unknown Materia: " << type << "¡ *" << std::endl;
 	return (NULL);
 }

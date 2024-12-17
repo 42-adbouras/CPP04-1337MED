@@ -6,7 +6,7 @@
 /*   By: adbouras <adbouras@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 18:00:30 by adbouras          #+#    #+#             */
-/*   Updated: 2024/12/16 15:31:28 by adbouras         ###   ########.fr       */
+/*   Updated: 2024/12/17 14:55:33 by adbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	intra_main( void ) {
 	delete i;
 }
 
-void	deep_copy( void ) {
+void	deepShallowCopy( void ) {
 	Cat 	cat;
 	cat.getBrain()->setIdeas("~Im hungry~");
 	
@@ -70,12 +70,12 @@ void	print_header( str arg ) {
 }
 
 
-int main( void )
-{
+int main( void ) {
+
 	print_header("Intra's main");
 	intra_main();
-	print_header("Deep Copy");
-	deep_copy();
+	print_header("Deep & Shllow Copy");
+	deepShallowCopy();
 	print_header("LEAKS");
 	system("leaks -q animals.exe");
 }

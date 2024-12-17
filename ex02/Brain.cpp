@@ -6,7 +6,7 @@
 /*   By: adbouras <adbouras@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 21:18:33 by adbouras          #+#    #+#             */
-/*   Updated: 2024/12/16 17:19:30 by adbouras         ###   ########.fr       */
+/*   Updated: 2024/12/17 10:12:39 by adbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ Brain::Brain( const Brain& right ) {
 	if (DEBUG)
 		std::cout << "[Brain Copy Constuctor Called]" << std::endl;
 	str*	temp = right.getIdeas();
+
 	this->ideas = new str[100];
 	if (this != &right) {
 		for (int i = 0; i < 100; i++) {
@@ -41,10 +42,14 @@ Brain::~Brain( void ) {
 Brain&	Brain::operator=( const Brain& right ) {
 	if (DEBUG)
 		std::cout << "[Brain Copy Assignment Called]" << std::endl;
+	str*	temp = right.getIdeas();
+
 	if (this != &right) {
-		for (int i = 0; i < 100; i++) {
-			this->ideas[i] = right.ideas[i];
-		}
+		if (this->ideas)
+			delete []this->ideas;
+		this->ideas = new str[100];
+		for (int i = 0; i < 100; i++)
+			this->ideas[i] = temp[i];
 	}
 	return (*this);
 }
