@@ -6,7 +6,7 @@
 /*   By: adbouras <adbouras@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 18:32:32 by adbouras          #+#    #+#             */
-/*   Updated: 2024/12/16 17:19:09 by adbouras         ###   ########.fr       */
+/*   Updated: 2024/12/19 16:02:44 by adbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ Animal::Animal( void ) : type("undefinedAnimal") {
 Animal::Animal( const Animal& right ) {
 	if (DEBUG)
 		std::cout << "[Animal Copy Constructor Called]" << std::endl;
-	if (this != &right)
 		*this = right;
 }
 
@@ -30,8 +29,8 @@ Animal::~Animal( void ) {
 }
 
 Animal&	Animal::operator=( const Animal& right ) {
-		std::cout << "[Animal Copy Assignment Called]" << std::endl;
 	if (DEBUG)
+		std::cout << "[Animal Copy Assignment Called]" << std::endl;
 	if (this != &right)
 		this->type = right.type;
 	return (*this);

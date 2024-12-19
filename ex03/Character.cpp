@@ -6,7 +6,7 @@
 /*   By: adbouras <adbouras@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 16:43:57 by adbouras          #+#    #+#             */
-/*   Updated: 2024/12/17 15:17:22 by adbouras         ###   ########.fr       */
+/*   Updated: 2024/12/19 16:26:42 by adbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,4 +143,8 @@ void	Character::use( int idx, ICharacter& target ) {
 			std::cout << this->getName() << " Inventory slot " << idx + 1 << " is empty!" << std::endl;
 	} else
 		std::cout << this->getName() << " Invalid inventory slot " << idx + 1 << "!" << std::endl;
+}
+
+void	Character::setName( str _name) {
+	this->name = _name;
 }

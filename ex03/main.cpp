@@ -6,7 +6,7 @@
 /*   By: adbouras <adbouras@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 21:32:34 by adbouras          #+#    #+#             */
-/*   Updated: 2024/12/17 15:22:03 by adbouras         ###   ########.fr       */
+/*   Updated: 2024/12/19 16:28:39 by adbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,10 @@ void	foo( void ) {
 	src.learnMateria(&ice);
 	src.learnMateria(&cure);
 	
+	std::cout << "_____________ equip _____________\n" << std::endl;
 	for (int i = 0; i < 6; i++)
 		john.equip(src.createMateria("ice"));
+	std::cout << "_________________________________\n" << std::endl;
 	john.unequip(1); john.unequip(2);
 	for (int i = 0; i < 4; i++)
 		john.equip(src.createMateria("cure"));
@@ -62,12 +64,15 @@ void	foo( void ) {
 	steve.equip(src.createMateria("fire"));
 	steve.use(0, john);
 
+	std::cout << "_______________ use ______________\n" << std::endl;
 	for (int i = 0; i < 6; i++)
 		john.use(i, steve);
+	std::cout << "_________________________________\n" << std::endl;
 
 	std::cout << "____________ unequip ____________\n" << std::endl;
 	for (int i = 0; i < 6; i++)
 		john.unequip(i);
+	std::cout << "_________________________________\n" << std::endl;
 }
 
 void	print_header( str arg ) {

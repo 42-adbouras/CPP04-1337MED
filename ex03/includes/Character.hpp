@@ -6,7 +6,7 @@
 /*   By: adbouras <adbouras@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 16:24:07 by adbouras          #+#    #+#             */
-/*   Updated: 2024/12/17 11:56:22 by adbouras         ###   ########.fr       */
+/*   Updated: 2024/12/19 16:26:09 by adbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,5 @@ public:
 	void	unequip( int idx );
 	void	use( int idx, ICharacter& target );
 
-	void	setName( str _name) {
-		this->name = _name;
-	}
-	AMateria*	getM( void ) {
-		return (*this->inventory);
-	}
+	void	setName( str _name);
 };
